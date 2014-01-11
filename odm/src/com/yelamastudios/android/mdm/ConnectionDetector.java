@@ -1,4 +1,4 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,7 +14,8 @@ public class ConnectionDetector {
 
 	// Checking for all possible connections
 	public boolean isConnectingToInternet() {
-		ConnectivityManager connectivity = (ConnectivityManager) _context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connectivity = (ConnectivityManager) _context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (connectivity != null) {
 			NetworkInfo[] info = connectivity.getAllNetworkInfo();
 			if (info != null)

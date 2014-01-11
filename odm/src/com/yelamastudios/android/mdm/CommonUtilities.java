@@ -1,4 +1,4 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,14 +35,14 @@ public final class CommonUtilities extends Activity {
 	 */
 	static final String TAG = "CommonUtilities";
 
-	static String gSERVER_URL = "";
+	static String gSERVER_URL = "https://192.168.0.11/odm/";
 	static String gNAME = "";
 	static String gUSERNAME = "";
 	static String gENC_KEY = "";
 	static String gREG_ID = "";
 	static String gVALID_SSL = "";
 	static String gDEBUG = "";
-	static String gSENDER_ID = "590633583092";
+	static String gSENDER_ID = "720884279527";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,7 +103,7 @@ public final class CommonUtilities extends Activity {
 	 *            message to be displayed.
 	 */
 	static void displayMessage(Context context, String message) {
-		Intent intent = new Intent("com.nowsci.odm.DISPLAY_MESSAGE");
+		Intent intent = new Intent("com.yelamastudios.android.mdm.DISPLAY_MESSAGE");
 		intent.putExtra("message", message);
 		context.sendBroadcast(intent);
 	}
@@ -224,7 +224,7 @@ public final class CommonUtilities extends Activity {
 
 	static String invalidPost(Map<String, String> params, byte[] bytes, URL url) throws IOException {
 		String html = "";
-		HttpsURLConnection conn = null;
+		HttpURLConnection conn = null;
 		try {
 			// Create a trust manager that does not validate certificate chains
 			TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
@@ -257,7 +257,7 @@ public final class CommonUtilities extends Activity {
 			};
 			// Install the all-trusting host verifier
 			HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-			conn = (HttpsURLConnection) url.openConnection();
+			conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
 			conn.setUseCaches(false);
 			conn.setFixedLengthStreamingMode(bytes.length);

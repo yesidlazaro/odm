@@ -1,12 +1,13 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.displayMessage;
-import static com.nowsci.odm.CommonUtilities.Logd;
-import static com.nowsci.odm.CommonUtilities.getVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.displayMessage;
+import static com.yelamastudios.android.mdm.CommonUtilities.getVAR;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;

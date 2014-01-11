@@ -1,4 +1,4 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import java.io.IOException;
 import android.annotation.TargetApi;

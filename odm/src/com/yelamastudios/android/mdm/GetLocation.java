@@ -1,4 +1,4 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import java.util.Timer;
 import java.util.TimerTask;

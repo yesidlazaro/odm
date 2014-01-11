@@ -1,6 +1,9 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+
+import com.yelamastudios.android.mdm.R;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
@@ -31,8 +34,8 @@ public class GetAdminActivity extends Activity implements OnClickListener {
 		deviceManger = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 		activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 		compName = new ComponentName(this, GetAdminReceiver.class);
-		//lock = (Button) findViewById(R.id.lock);
-		//lock.setOnClickListener(this);
+		// lock = (Button) findViewById(R.id.lock);
+		// lock.setOnClickListener(this);
 		enable = (Button) findViewById(R.id.btnEnable);
 		enable.setOnClickListener(this);
 	}
@@ -40,18 +43,17 @@ public class GetAdminActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		/*
-		if (v == lock) {
-			boolean active = deviceManger.isAdminActive(compName);
-			if (active) {
-				deviceManger.lockNow();
-			}
-		}
-		*/
+		 * if (v == lock) { boolean active =
+		 * deviceManger.isAdminActive(compName); if (active) {
+		 * deviceManger.lockNow(); } }
+		 */
 		if (v == enable) {
 			Logd(TAG, "Attempting to enable admin");
-			Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+			Intent intent = new Intent(
+					DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 			intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, compName);
-			intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "ODM requires admin access for locking and wiping the device.");
+			intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,
+					"ODM requires admin access for locking and wiping the device.");
 			startActivityForResult(intent, RESULT_ENABLE);
 		}
 	}
@@ -62,9 +64,11 @@ public class GetAdminActivity extends Activity implements OnClickListener {
 		case RESULT_ENABLE:
 			if (resultCode == Activity.RESULT_OK) {
 				Log.i("DeviceAdminSample", "Admin enabled!");
-				//Intent intent = new Intent(getApplicationContext(), StartupActivity.class);
-				//this.startActivity(intent);
-				Intent intent = new Intent(getApplicationContext(), StartupActivity.class);
+				// Intent intent = new Intent(getApplicationContext(),
+				// StartupActivity.class);
+				// this.startActivity(intent);
+				Intent intent = new Intent(getApplicationContext(),
+						StartupActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			} else {

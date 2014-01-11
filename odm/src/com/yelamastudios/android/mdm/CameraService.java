@@ -1,7 +1,7 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.Logd;
-import static com.nowsci.odm.CommonUtilities.getVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.getVAR;
 
 import java.io.IOException;
 import java.net.URLEncoder;

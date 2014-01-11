@@ -1,6 +1,9 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.getVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.getVAR;
+
+import com.yelamastudios.android.mdm.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,7 +35,9 @@ public class RegisterActivity extends Activity {
 		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
 			// Internet Connection is not present
-			alert.showAlertDialog(RegisterActivity.this, "Internet Connection Error", "Please connect to working Internet connection", false);
+			alert.showAlertDialog(RegisterActivity.this,
+					"Internet Connection Error",
+					"Please connect to working Internet connection", false);
 			// stop executing code by return
 			return;
 		}
@@ -62,20 +67,18 @@ public class RegisterActivity extends Activity {
 		else
 			tglDebug.setChecked(false);
 
-		// These lines are for debugging only.
-		// NOTE: FORDEVEL
-		/*
 		txtName.setText("Test Device");
-		txtServerUrl.setText("https://HOST/odm");
-		txtUsername.setText("testuser");
-		txtEncKey.setText("password");
-		*/
+		txtServerUrl.setText("http://192.168.0.11/odm/");
+		txtUsername.setText("yelama");
+		txtEncKey.setText("testpass");
 
 		// Check if GCM configuration is set
 		String SENDER_ID = getVAR("SENDER_ID");
 		if (SENDER_ID == null || SENDER_ID.length() == 0) {
 			// GCM sender id is missing
-			alert.showAlertDialog(RegisterActivity.this, "Configuration Error!", "Please set your GCM Sender ID", false);
+			alert.showAlertDialog(RegisterActivity.this,
+					"Configuration Error!", "Please set your GCM Sender ID",
+					false);
 			// stop executing code by return
 			return;
 		}
@@ -100,9 +103,13 @@ public class RegisterActivity extends Activity {
 				else
 					debug = "false";
 				// Check if user filled the form
-				if (name.trim().length() > 0 && serverurl.trim().length() > 0 && username.trim().length() > 0 && enckey.trim().length() > 0) {
-					// Launch Main Activity to register user on server and send registration details
-					SharedPreferences mPrefs = getSharedPreferences("usersettings", 0);
+				if (name.trim().length() > 0 && serverurl.trim().length() > 0
+						&& username.trim().length() > 0
+						&& enckey.trim().length() > 0) {
+					// Launch Main Activity to register user on server and send
+					// registration details
+					SharedPreferences mPrefs = getSharedPreferences(
+							"usersettings", 0);
 					SharedPreferences.Editor mEditor = mPrefs.edit();
 					String SERVER_URL = "";
 					if (serverurl.endsWith("/")) {
@@ -116,12 +123,15 @@ public class RegisterActivity extends Activity {
 					mEditor.putString("DEBUG", debug).commit();
 					mEditor.putString("ENC_KEY", enckey).commit();
 					mEditor.putString("NAME", name).commit();
-					Intent intent = new Intent(getApplicationContext(), StartupActivity.class);
+					Intent intent = new Intent(getApplicationContext(),
+							StartupActivity.class);
 					startActivity(intent);
 					finish();
 				} else {
 					// User hasn't filled in data
-					alert.showAlertDialog(RegisterActivity.this, "Registration Error!", "Please enter your details", false);
+					alert.showAlertDialog(RegisterActivity.this,
+							"Registration Error!", "Please enter your details",
+							false);
 				}
 			}
 		});

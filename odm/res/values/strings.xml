@@ -1,5 +1,5 @@
 <resources>
 
-    <string name="app_name">Open Device Manager</string>
-
+    <string name="app_name">Yelama Device Manager</string>
+    <string name="server_url">https://192.168.0.11/odm/</string>
 </resources>

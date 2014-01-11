@@ -1,7 +1,7 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.Logd;
-import static com.nowsci.odm.CommonUtilities.getVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.getVAR;
 
 import java.io.IOException;
 import java.util.Date;
@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.yelamastudios.android.mdm.R;
 
 public class MainActivity extends Activity {
 	private static final String TAG = "MainActivity";
@@ -46,7 +47,7 @@ public class MainActivity extends Activity {
 		}
 		lblMessage = (TextView) findViewById(R.id.lblMessage);
 		Logd(TAG, "Starting message receiver.");
-		registerReceiver(mHandleMessageReceiver, new IntentFilter("com.nowsci.odm.DISPLAY_MESSAGE"));
+		registerReceiver(mHandleMessageReceiver, new IntentFilter("com.yelamastudios.android.mdm.DISPLAY_MESSAGE"));
 		// Get GCM registration id
 		Logd(TAG, "Starting registration procedure.");
 		new RegisterBackground().execute();

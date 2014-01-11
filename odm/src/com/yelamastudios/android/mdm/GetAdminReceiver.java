@@ -1,10 +1,10 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import android.app.admin.DeviceAdminReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import static com.nowsci.odm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
 
 public class GetAdminReceiver extends DeviceAdminReceiver {
 

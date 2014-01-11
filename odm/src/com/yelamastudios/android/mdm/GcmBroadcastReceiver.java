@@ -1,11 +1,11 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
-import static com.nowsci.odm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
 
 public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
 	private static final String TAG = "GcmBroadcastReceiver";

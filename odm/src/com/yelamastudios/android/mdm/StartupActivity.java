@@ -1,7 +1,7 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.Logd;
-import static com.nowsci.odm.CommonUtilities.setVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.setVAR;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;

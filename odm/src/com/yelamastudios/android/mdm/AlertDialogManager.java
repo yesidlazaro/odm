@@ -1,4 +1,6 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
+
+import com.yelamastudios.android.mdm.R;
 
 import android.app.AlertDialog;
 import android.content.Context;

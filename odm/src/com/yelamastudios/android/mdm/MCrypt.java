@@ -1,6 +1,6 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.getVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.getVAR;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -11,7 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class MCrypt {
 
-	private String iv = "com.nowsci.odmiv";
+	private String iv = "com.yelamast.mdm";
 	private IvParameterSpec ivspec;
 	private SecretKeySpec keyspec;
 	private Cipher cipher;
@@ -20,7 +20,6 @@ public class MCrypt {
 
 	public MCrypt() {
 		ivspec = new IvParameterSpec(iv.getBytes());
-
 		// TODO Make this real
 		// For now, we'll just make it 16 characters.
 		if (SecretKey.length() > 16) {
@@ -30,7 +29,6 @@ public class MCrypt {
 				SecretKey = SecretKey + "0";
 			}
 		}
-
 		keyspec = new SecretKeySpec(SecretKey.getBytes(), "AES");
 		try {
 			cipher = Cipher.getInstance("AES/CBC/NoPadding");
@@ -92,7 +90,6 @@ public class MCrypt {
 		if (data == null) {
 			return null;
 		}
-
 		int len = data.length;
 		String str = "";
 		for (int i = 0; i < len; i++) {

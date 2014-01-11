@@ -1,9 +1,11 @@
-package com.nowsci.odm;
+package com.yelamastudios.android.mdm;
 
-import static com.nowsci.odm.CommonUtilities.Logd;
-import static com.nowsci.odm.CommonUtilities.setVAR;
+import static com.yelamastudios.android.mdm.CommonUtilities.Logd;
+import static com.yelamastudios.android.mdm.CommonUtilities.setVAR;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.yelamastudios.android.mdm.R;
+
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -49,6 +51,7 @@ public class HelperIntentService extends IntentService {
 					setVAR("VALID_SSL", mPrefs.getString("VALID_SSL", ""));
 					setVAR("DEBUG", mPrefs.getString("DEBUG", ""));
 					MCrypt mcrypt = new MCrypt();
+					
 					String decrypted = new String(mcrypt.decrypt(msg));
 					Logd(TAG, "Received message: " + decrypted);
 					handleMessage(decrypted);
@@ -90,20 +93,20 @@ public class HelperIntentService extends IntentService {
 			}
 		} else if (message.equals("Command:StartRing")) {
 			Logd(TAG, "About to start ringer service.");
-			Intent intent = new Intent("com.nowsci.odm.AudioService");
+			Intent intent = new Intent("com.yelamastudios.android.mdm.AudioService");
 			context.startService(intent);
 		} else if (message.equals("Command:StopRing")) {
 			Logd(TAG, "About to stop ringer service.");
-			Intent intent = new Intent("com.nowsci.odm.AudioService");
+			Intent intent = new Intent("com.yelamastudios.android.mdm.AudioService");
 			context.stopService(intent);
 		} else if (message.equals("Command:FrontPhoto") || message.equals("Command:RearPhoto")) {
 			Logd(TAG, "About to start camera service.");
-			Intent intent = new Intent("com.nowsci.odm.CameraService");
+			Intent intent = new Intent("com.yelamastudios.android.mdm.CameraService");
 			intent.putExtra("message", message);
 			context.startService(intent);
 		} else if (message.equals("Command:GetLocation")) {
 			Logd(TAG, "About to start location service.");
-			Intent intent = new Intent("com.nowsci.odm.LocationService");
+			Intent intent = new Intent("com.yelamastudios.android.mdm.LocationService");
 			context.startService(intent);
 		}
 		// Releasing wake lock
